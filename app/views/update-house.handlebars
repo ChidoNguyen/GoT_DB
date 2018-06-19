@@ -1,0 +1,15 @@
+<h1> Update {{houses.Name}}:</h1>
+<form id ="update-house" action="/houses" method="post">
+	Name: <input type="text" name ="name" value="{{houses.Name}}"><br>
+	Motto: <input type="text" name ="motto" value ="{{houses.Motto}}"><br>
+	Sigil: <input type="text" name ="sigil" value ="{{houses.Sigil}}"><br>
+	Location:
+		<select name="location" id="location-selector"> 
+			{{#each locations}}
+				<option value="{{ID}}">{{Name}}</option>
+			{{/each}}
+		</select><br>
+</form>
+<button onclick ="updateHouse({{houses.ID}})">Update</button>
+
+<script defer>selectLocation({{houses.LocationID}});</script>

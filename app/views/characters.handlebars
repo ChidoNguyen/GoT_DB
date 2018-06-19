@@ -1,0 +1,69 @@
+<h1 class="title">Characters</h1>
+<table class="table is-bordered is-striped is-fullwidth">
+    <thead> 
+        <th>Name</th> 
+        <th>House</th> 
+        <th>Birthplace</th>
+        <th>Biography</th>  
+        <th>Update</th> 
+        <th>Delete</th>
+    </thead> 
+    <tbody> 
+        {{#each characters}} 
+        <tr> 
+            <td>{{Name}}</td> 
+            <td>{{House}}</td> 
+            <td>{{Location}}</td> 
+            <td>{{Biography}}</td>
+            <td><a href="/characters/{{ID}}">Update</a></td>
+            <td><a onclick="deleteCharacter({{ID}})">Delete</a></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+
+<br>
+
+<div class="box">
+    <div class="subtitle is-5">Add Character</div>
+    <form id="addcharacter" action="/characters" method="post">
+
+        <!-- Get Name -->
+        <div class="field">
+            <label class="label">Name</label>
+            <input class="input" type="text" name="name" placeholder="Sandor Clegane">
+        </div>
+
+        <!-- Get House -->
+        <div class="field">
+            <label class="label">House</label>
+            <select class="input" name="house"> 
+                {{#each houses}}
+                    <option value="{{ID}}">{{Name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <!-- Get Birthplace -->
+        <div class="field">
+            <label class="label">Birthplace</label>
+            <select class="input" name="location"> 
+                {{#each locations}}
+                    <option value="{{ID}}">{{Name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <!-- Get Biography -->
+        <div class="field">
+            <label class="label">Biography</label>
+            <input class="input" type="text" name="biography" placeholder="Sentenced to live out his days on the Night's Watch">
+        </div>
+
+        <!-- Submit -->
+        <div class="field">
+            <input class="button is-info" type="submit" value="Submit">
+        </div>
+
+    </form>  
+</div>

@@ -1,0 +1,21 @@
+<h1>Update {{character.Name}}:</h1>
+<form id="update-character" action="/characters" method="post">
+    Name: <input type="text" name="name" value="{{character.Name}}"><br>
+    House: 
+        <select name="house" id="house-selector"> 
+            {{#each houses}}
+                <option value="{{ID}}">{{Name}}</option>
+            {{/each}}
+        </select><br>
+    Birthplace: 
+        <select name="location" id="location-selector"> 
+            {{#each locations}}
+                <option value="{{ID}}">{{Name}}</option>
+            {{/each}}
+        </select><br>
+    Biography: <input type="text" name="biography" value="{{character.Biography}}"><br>
+</form>
+<button onclick="updateCharacter({{character.ID}})">Update</button>
+<!--Import scripts to handle showing current/correct house and location-->
+<script defer>selectHouse({{character.HouseID}});</script>
+<script defer>selectLocation({{character.Birthplace}});</script>

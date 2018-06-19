@@ -1,0 +1,61 @@
+<h1 class="title">Episodes</h1>
+<table class="table is-bordered is-striped is-fullwidth">
+    <thead> 
+        <th>Season</th> 
+        <th>Episode</th> 
+        <th>Title</th>
+        <th>Air Date</th>
+        <th>Update</th> 
+        <th>Delete</th>  
+    </thead> 
+    <tbody> 
+        {{#each episodes}} 
+        <tr> 
+            <td>{{Season}}</td> 
+            <td>{{Season_ep}}</td> 
+            <td>{{Title}}</td> 
+            <td>{{Air_Date}}</td>
+            <td><a href="/episodes/{{ID}}">Update</a></td>
+            <td><a onclick ="deleteEpisode({{ID}})">Delete</a></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table> 
+
+<br>
+
+<div class="box">
+    <div class="subtitle is-5">Add Episode</div>
+    <form id="addEpisode" action="/episodes" method="post">
+        
+        <!-- Get Season -->
+        <div class="field">
+            <label class="label">Season</label>
+            <input class="input" type="number" name="season" placeholder="1">
+        </div>
+
+        <!-- Get Episode -->
+        <div class="field">
+            <label class="label">Episode</label>
+            <input class="input" type="number" name="season_ep" placeholder="1">
+        </div>
+
+        <!-- Get Title -->
+        <div class="field">
+            <label class="label">Title</label>
+            <input class="input" type="text" name="title" placeholder="Winter is Coming">
+        </div>
+        
+        <!-- Get Air Date -->
+        <div class="field">
+            <label class="label">Air Date</label>
+            <input class="input" type="date" name="airdate" placeholder="2011-04-17">
+        </div>
+
+        <!-- Submit -->
+        <div class="field">
+            <input class="button is-info" type="submit" value="Submit">
+        </div>
+
+    </form>
+</div>

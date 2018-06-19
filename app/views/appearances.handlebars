@@ -1,0 +1,97 @@
+<h1 class="title">Appearances</h1>
+
+<table class="table is-bordered is-striped is-fullwidth">
+	<thead> 
+		<th>Character</th> 
+		<th>Title</th> 
+		<th>Season</th>
+		<th>Episode</th>
+		<th>Delete</th>
+	</thead> 
+	<tbody> 
+		{{#each appearances}} 
+		<tr> 
+			<td>{{Name}}</td> 
+			<td>{{Title}}</td> 
+			<td>{{Season}}</td>
+			<td>{{Episode}}</td>
+			<td><a onclick="deleteAppearance({{EID}},{{CID}})">Delete</a></td>
+		</tr> 
+		{{/each}} 
+	</tbody> 
+</table> 
+<br>
+
+<div class="box">
+	<div class="subtitle is-5">Filter by Character</div>
+	<form id="filterCharacter" action="/appearances/filter-character" method="GET">
+		<div class="field">
+			<label class="label">Character</label>
+			<select class="input" name="filteredCharacter" id="characterSelector">
+				{{#each groupedAppearances}}
+				<option value ="{{CID}}">{{Name}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="field">
+			<input class="button is-info" form="filterCharacter" type="submit" value="Filter">
+		</div>
+	</form>
+</div>
+
+<div class="box">
+	<div class="subtitle is-5">Add Appearance</div>
+	<div id="filter">
+		
+		<!-- Filter season form -->
+		<form id="filterSeason" action="/appearances/filter" method="post">
+			
+			<!-- Filter Season -->
+			<div class="field">
+				<label class="label">Season</label>
+				<select class="input" name="seasonFilter" id="season-selector">
+					{{#each distinctSeason}}
+					<option value="{{Season}}">{{Season}}</option>
+					{{/each}}
+				</select>
+			</div>
+			
+			<!-- Next -->
+			<div class="field">
+				<input class="button is-info" form="filterSeason" type="submit" value="Next">
+			</div>
+		</form>
+
+		<br>
+
+		<!-- Filter season form -->
+		{{#if sep}}
+		<form id="linkSandC" action ="/appearances" method="post">
+			<div class="field">
+				<label class="label">Episode</label>
+				<select class="input" name="filterEp">
+					{{#each sep}}
+					<option value ="{{ID}}">{{episodes}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<div class="field">
+				<label class="label">Character</label>
+				<select class="input" name="filterChar">
+					{{#each characters}}
+					<option value ="{{ID}}">{{Name}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			<div class="field">
+				<input class="button is-info" form="linkSandC" type="submit" value="Submit">
+			</div>
+		</form>
+		{{/if}}
+
+	</div>
+</div>
+
+<!-- Import scripts to handle showing current/correct season -->
+<script defer>selectSeason({{seasonNumber}});</script>
