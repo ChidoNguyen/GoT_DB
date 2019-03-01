@@ -1,6 +1,6 @@
 # CS340-FinalProject
 <br>
-----
+----<br>
 Overview: Source Files for our collaborated Game of Thrones Relation Webpage. The project goals were to generate various relationship connections between aspects of the popular book/show Game of Thrones. Relationships were documented back-end via ER databases, these relationships were visualized with our basic webpage. The webpage shows various relationships in tables and allows for user to add/update/remove various items.
 <br>
 *  Teamwork
@@ -9,7 +9,7 @@ Overview: Source Files for our collaborated Game of Thrones Relation Webpage. Th
 *  Webpage setup using HTML
 *  Utilized NodeJs to execute our JavaScript code that allowed for the interaction and population with our database information
 <br>
-----
+----<br>
 ### Deliverables:
 
 - PDF with diagrams and printed information
