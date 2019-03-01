@@ -7,7 +7,6 @@ Skills:
 - ER-Database , MySQL
 - Webpage setup using HTML
 - Utilized NodeJs to execute our JavaScript code that allowed for the interaction and population with our database information
-<br>
 ### Deliverables:
 
 - PDF with diagrams and printed information
